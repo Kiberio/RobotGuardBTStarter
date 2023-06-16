@@ -91,16 +91,13 @@ public class Ai2 : MonoBehaviour
             {
                 Quaternion novaRotacao = Quaternion.LookRotation(direcaoJogador);
                 transform.rotation = Quaternion.Slerp(transform.rotation, novaRotacao, Time.deltaTime * 5f);
-                FireT();
+                Fire();
                 return true;
             } 
             else return false;
         }
 
-        void FireT(){
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward*2000);
-        }
+        
 
         [Task]
         public void Fire(){
